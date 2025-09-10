@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Print styles for full A4 page without white space */
+@media print {
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100vh !important;
+    width: 100vw !important;
+    overflow: hidden !important;
+    background: white !important;
+  }
+
+  /* Extra top space from page 2 onward; page 1 stays flush */
+  @page {
+    size: A4 portrait;
+    margin: 0.35in 0 0 0 !important; /* top space for page 2+ */
+  }
+  @page:first {
+    margin: 0 !important; /* no extra space on page 1 */
+  }
+
+  /* Hide everything except the print content */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Show only the resume content - FULL PAGE */
+  #resume-print-only {
+    display: block !important;
+    visibility: visible !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    padding: 0.4in 0.5in !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    background: white !important;
+    color: black !important;
+    font-family: "Times New Roman", Times, serif !important;
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    display: flex !important;
+    flex-direction: column !important;
+
+    /* Allow natural multi-page flow */
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  /* Ensure all child elements are visible */
+  #resume-print-only * {
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: inherit !important;
+  }
+
+  /* Keep links blue in print */
+  #resume-print-only a {
+    color: blue !important;
+    text-decoration: none !important;
+  }
+
+  /* Section spacing */
+  #resume-print-only > div {
+    margin-bottom: 12px !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  /* Prevent orphaned headers */
+  #resume-print-only > div > div:first-child {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Let the last section flex if needed */
+  #resume-print-only > div:last-child {
+    flex: 1 !important;
+    margin-bottom: 0 !important;
+  }
+}
