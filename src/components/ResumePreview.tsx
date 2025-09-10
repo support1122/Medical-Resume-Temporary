@@ -95,13 +95,15 @@ export const ResumePreview: React.FC<ResumePreviewProps> = ({ data, showLeadersh
     <>
       {/* Header */}
       <div style={{ textAlign: 'center', marginBottom: '12px' }}>
-        <div style={{ fontSize: '16px', marginBottom: '4px', fontWeight: 'bold' }}>
+        <div style={{ fontSize: '12px', marginBottom: '2px', fontWeight: 'bold', letterSpacing: '0.3px' }}>
           {data.personalInfo.name || 'Your Name'}
         </div>
-        <div style={{ fontSize: '9pt', marginBottom: '4px' }}>
-          {data.personalInfo.title || 'Your Professional Title'}
-        </div>
-        <div style={{ fontSize: '9pt' }}>
+        {data.personalInfo.title && data.personalInfo.title.trim() !== '' && (
+          <div style={{ fontSize: '11px', marginBottom: '3px', letterSpacing: '0.25px' }}>
+            {data.personalInfo.title}
+          </div>
+        )}
+        <div style={{ fontSize: '9px', letterSpacing: '0.25px' }}>
           {data.personalInfo.phone}
           {data.personalInfo.email && (
             <>
@@ -153,43 +155,43 @@ export const ResumePreview: React.FC<ResumePreviewProps> = ({ data, showLeadersh
 
       {/* Summary */}
       <div style={{ marginBottom: '12px' }}>
-        <div style={{ fontSize: '9pt', borderBottom: '1px solid #000', paddingBottom: '2px', marginBottom: '6px', fontWeight: 'bold' }}>
+        <div style={{ fontSize: '12px', borderBottom: '1px solid #000', paddingBottom: '1px', marginBottom: '3px', fontWeight: 'bold' }}>
           SUMMARY
         </div>
-        <div style={{ textAlign: 'justify', fontSize: '9pt', lineHeight: '1.3' }}>
+        <div style={{ textAlign: 'justify', fontSize: '11px', lineHeight: '1.3' }}>
           {data.summary || 'Your professional summary will appear here...'}
         </div>
       </div>
 
       {/* Work Experience */}
       <div style={{ marginBottom: '12px' }}>
-        <div style={{ fontSize: '9pt', borderBottom: '1px solid #000', paddingBottom: '2px', marginBottom: '6px', fontWeight: 'bold' }}>
+        <div style={{ fontSize: '12px', borderBottom: '1px solid #000', paddingBottom: '1px', marginBottom: '3px', fontWeight: 'bold' }}>
           WORK EXPERIENCE
         </div>
         {data.workExperience.length > 0 ? (
           data.workExperience.map((exp, index) => (
             <div key={exp.id} style={{ marginBottom: '8px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '3px' }}>
-                <div style={{ fontSize: '9pt', fontWeight: 'bold', flex: '1' }}>
+                <div style={{ fontSize: '11px', fontWeight: 'bold', flex: '1' }}>
                   {exp.company || 'Company Name'}
                 </div>
-                <div style={{ fontSize: '9pt', textAlign: 'right' }}>
+                <div style={{ fontSize: '11px', textAlign: 'right' }}>
                   {exp.location || 'Location'}
                 </div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '3px' }}>
-                <div style={{ fontSize: '9pt' }}>
+                <div style={{ fontSize: '11px' }}>
                   {exp.position || 'Position Title'}
                 </div>
-                <div style={{ fontSize: '9pt', textAlign: 'right' }}>
+                <div style={{ fontSize: '11px', textAlign: 'right' }}>
                   {exp.duration}
                 </div>
               </div>
               {exp.responsibilities.map((resp, respIndex) => (
                 resp.trim() && (
                   <div key={respIndex} style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '3px' }}>
-                    <span style={{ fontSize: '9pt', marginRight: '4px', minWidth: '8px' }}>•</span>
-                    <div style={{ textAlign: 'justify', fontSize: '9pt', lineHeight: '1.3' }}>{resp}</div>
+                    <span style={{ fontSize: '11px', marginRight: '4px', minWidth: '8px' }}>•</span>
+                    <div style={{ textAlign: 'justify', fontSize: '11px', lineHeight: '1.3' }}>{resp}</div>
                   </div>
                 )
               ))}
@@ -205,32 +207,32 @@ export const ResumePreview: React.FC<ResumePreviewProps> = ({ data, showLeadersh
       {/* Projects - Only show if enabled */}
       {showProjects && data.projects && data.projects.length > 0 && (
         <div style={{ marginBottom: '12px' }}>
-          <div style={{ fontSize: '9pt', borderBottom: '1px solid #000', paddingBottom: '2px', marginBottom: '6px', fontWeight: 'bold' }}>
+          <div style={{ fontSize: '12px', borderBottom: '1px solid #000', paddingBottom: '1px', marginBottom: '3px', fontWeight: 'bold' }}>
             PROJECTS
           </div>
           {data.projects.map((project, index) => (
             <div key={project.id} style={{ marginBottom: '8px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '3px' }}>
-                <div style={{ fontSize: '9pt', fontWeight: 'bold', flex: '1' }}>
+                <div style={{ fontSize: '11px', fontWeight: 'bold', flex: '1' }}>
                   {project.company || 'Organization'}
                 </div>
-                <div style={{ fontSize: '9pt', textAlign: 'right' }}>
+                <div style={{ fontSize: '11px', textAlign: 'right' }}>
                   {project.location || 'Location'}
                 </div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '3px' }}>
-                <div style={{ fontSize: '9pt' }}>
+                <div style={{ fontSize: '11px' }}>
                   {project.position || 'Project Title'}
                 </div>
-                <div style={{ fontSize: '9pt', textAlign: 'right' }}>
+                <div style={{ fontSize: '11px', textAlign: 'right' }}>
                   {project.duration}
                 </div>
               </div>
               {project.responsibilities.map((resp, respIndex) => (
                 resp.trim() && (
                   <div key={respIndex} style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '3px' }}>
-                    <span style={{ fontSize: '9pt', marginRight: '4px', minWidth: '8px' }}>•</span>
-                    <div style={{ textAlign: 'justify', fontSize: '9pt', lineHeight: '1.3' }}>{resp}</div>
+                    <span style={{ fontSize: '11px', marginRight: '4px', minWidth: '8px' }}>•</span>
+                    <div style={{ textAlign: 'justify', fontSize: '11px', lineHeight: '1.3' }}>{resp}</div>
                   </div>
                 )
               ))}
@@ -242,11 +244,11 @@ export const ResumePreview: React.FC<ResumePreviewProps> = ({ data, showLeadersh
       {/* Leadership & Volunteering - Only show if enabled */}
       {showLeadership && data.leadership && data.leadership.length > 0 && (
         <div style={{ marginBottom: '12px' }}>
-          <div style={{ fontSize: '9pt', borderBottom: '1px solid #000', paddingBottom: '2px', marginBottom: '6px', fontWeight: 'bold' }}>
+          <div style={{ fontSize: '12px', borderBottom: '1px solid #000', paddingBottom: '1px', marginBottom: '3px', fontWeight: 'bold' }}>
             LEADERSHIP & VOLUNTEERING
           </div>
           {data.leadership.map((item) => (
-            <div key={item.id} style={{ fontSize: '9pt', marginBottom: '3px' }}>
+            <div key={item.id} style={{ fontSize: '11px', marginBottom: '3px' }}>
               {item.title}{item.organization && `, ${item.organization}`}
             </div>
           ))}
@@ -255,7 +257,7 @@ export const ResumePreview: React.FC<ResumePreviewProps> = ({ data, showLeadersh
 
       {/* Skills */}
       <div style={{ marginBottom: '12px' }}>
-        <div style={{ fontSize: '9pt', borderBottom: '1px solid #000', paddingBottom: '2px', marginBottom: '6px', fontWeight: 'bold' }}>
+        <div style={{ fontSize: '12px', borderBottom: '1px solid #000', paddingBottom: '1px', marginBottom: '3px', fontWeight: 'bold' }}>
           SKILLS
         </div>
         {data.skills.length > 0 ? (
@@ -271,7 +273,7 @@ export const ResumePreview: React.FC<ResumePreviewProps> = ({ data, showLeadersh
                 key={category.id}
                 style={{
                   display: "contents",
-                  fontSize: "9pt",
+                  fontSize: "11px",
                   lineHeight: "1.3",
                 }}
               >
@@ -313,18 +315,18 @@ export const ResumePreview: React.FC<ResumePreviewProps> = ({ data, showLeadersh
 
       {/* Education */}
       <div style={{ marginBottom: '12px' }}>
-        <div style={{ fontSize: '9pt', borderBottom: '1px solid #000', paddingBottom: '2px', marginBottom: '6px', fontWeight: 'bold' }}>
+        <div style={{ fontSize: '12px', borderBottom: '1px solid #000', paddingBottom: '1px', marginBottom: '3px', fontWeight: 'bold' }}>
           EDUCATION
         </div>
         {data.education.length > 0 ? (
           data.education.map((edu, index) => (
             <div key={edu.id} style={{ marginBottom: '6px' }}>
-              <div style={{ fontSize: '9pt', marginBottom: '2px' }}>
+              <div style={{ fontSize: '11px', marginBottom: '2px' }}>
                 <span style={{ fontWeight: 'bold' }}>{edu.institution}{edu.location && `, ${edu.location}`}</span>
                 <span> - {edu.degree}{edu.field && `, ${edu.field}`}</span>
               </div>
               {edu.additionalInfo && (
-                <div style={{ fontSize: '9pt' }}>{edu.additionalInfo}</div>
+                <div style={{ fontSize: '11px' }}>{edu.additionalInfo}</div>
               )}
             </div>
           ))
@@ -338,12 +340,12 @@ export const ResumePreview: React.FC<ResumePreviewProps> = ({ data, showLeadersh
       {/* Publications - Only show if enabled */}
       {showPublications && data.publications && data.publications.length > 0 && (
         <div style={{ marginBottom: '12px' }}>
-          <div style={{ fontSize: '9pt', borderBottom: '1px solid #000', paddingBottom: '2px', marginBottom: '6px', fontWeight: 'bold' }}>
+          <div style={{ fontSize: '12px', borderBottom: '1px solid #000', paddingBottom: '1px', marginBottom: '3px', fontWeight: 'bold' }}>
             PUBLICATIONS
           </div>
           {data.publications.map((publication) => (
             <div key={publication.id} style={{ marginBottom: '6px' }}>
-              <div style={{ fontSize: '9pt', lineHeight: '1.3', textAlign: 'justify' }}>
+              <div style={{ fontSize: '11px', lineHeight: '1.3', textAlign: 'justify' }}>
                 {publication.details}
               </div>
             </div>
