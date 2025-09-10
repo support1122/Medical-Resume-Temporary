@@ -5,6 +5,7 @@ interface ProjectItem {
   id: string;
   position: string;
   company: string;
+  location: string;
   duration: string;
   responsibilities: string[];
 }
@@ -20,6 +21,7 @@ export const Projects: React.FC<ProjectsProps> = ({ data, onChange }) => {
       id: Date.now().toString(),
       position: '',
       company: '',
+      location: '',
       duration: '',
       responsibilities: ['']
     };
@@ -112,6 +114,16 @@ export const Projects: React.FC<ProjectsProps> = ({ data, onChange }) => {
               />
             </div>
 
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+              <input
+                type="text"
+                value={project.location}
+                onChange={(e) => updateProject(project.id, 'location', e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="e.g., Boston, MA"
+              />
+            </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Duration</label>
               <input

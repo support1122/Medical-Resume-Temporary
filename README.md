@@ -64,7 +64,7 @@ cp .env.example .env
 npm run dev
 ```
 
-5. Open your browser and navigate to `http://localhost:5173`
+5. Open your browser and navigate to the local development server URL shown in the terminal
 
 ### Building for Production
 

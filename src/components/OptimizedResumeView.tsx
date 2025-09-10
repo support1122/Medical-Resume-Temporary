@@ -41,6 +41,11 @@ export const OptimizedResumeView: React.FC<OptimizedResumeViewProps> = ({
       changes.push('✓ Projects section improved');
     }
     
+    // Compare publications if shown
+    if (showPublications && JSON.stringify(originalData.publications) !== JSON.stringify(optimizedData.publications)) {
+      changes.push('✓ Publications section enhanced');
+    }
+    
     // Compare skills
     if (JSON.stringify(originalData.skills) !== JSON.stringify(optimizedData.skills)) {
       changes.push('✓ Skills section tailored');
