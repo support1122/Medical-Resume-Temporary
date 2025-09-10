@@ -273,7 +273,6 @@ These settings will give you the best results for your resume PDF.`);
         return github;
     };
 
-
     const getLinkedInUrl = (linkedin: string) => {
         if (!linkedin) return "#";
         if (linkedin.startsWith("http")) {
@@ -297,7 +296,6 @@ These settings will give you the best results for your resume PDF.`);
         }
         return `https://github.com/${github}`;
     };
-
 
     const getHighlightStyle = (fieldPath: string) => {
         if (showChanges && changedFields.has(fieldPath)) {
