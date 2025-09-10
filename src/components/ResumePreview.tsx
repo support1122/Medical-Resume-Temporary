@@ -9,6 +9,7 @@ interface ResumeData {
         location: string;
         linkedin: string;
         portfolio: string;
+        github: string;
     };
     summary: string;
     workExperience: Array<{
@@ -17,6 +18,7 @@ interface ResumeData {
         company: string;
         duration: string;
         location: string;
+        roleType: string;
         responsibilities: string[];
     }>;
     projects: Array<{
@@ -25,7 +27,10 @@ interface ResumeData {
         company: string;
         duration: string;
         location: string;
+        roleType: string;
         responsibilities: string[];
+        linkName: string;
+        linkUrl: string;
     }>;
     leadership: Array<{
         id: string;
@@ -43,6 +48,7 @@ interface ResumeData {
         location: string;
         degree: string;
         field: string;
+        duration: string;
         additionalInfo: string;
     }>;
     publications: Array<{
@@ -259,6 +265,14 @@ These settings will give you the best results for your resume PDF.`);
         return portfolio;
     };
 
+    const formatGithub = (github: string) => {
+        if (!github) return "";
+        if (github.startsWith("http")) {
+            return "GitHub";
+        }
+        return github;
+    };
+
 
     const getLinkedInUrl = (linkedin: string) => {
         if (!linkedin) return "#";
@@ -274,6 +288,14 @@ These settings will give you the best results for your resume PDF.`);
             return portfolio;
         }
         return `https://${portfolio}`;
+    };
+
+    const getGithubUrl = (github: string) => {
+        if (!github) return "#";
+        if (github.startsWith("http")) {
+            return github;
+        }
+        return `https://github.com/${github}`;
     };
 
 
@@ -396,6 +418,22 @@ These settings will give you the best results for your resume PDF.`);
                                 rel="noopener noreferrer"
                             >
                                 {formatPortfolio(data.personalInfo.portfolio)}
+                            </a>
+                        </>
+                    )}
+                    {data.personalInfo.github && (
+                        <>
+                            {" | "}
+                            <a
+                                href={getGithubUrl(data.personalInfo.github)}
+                                style={{
+                                    color: "blue",
+                                    textDecoration: "none",
+                                }}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {formatGithub(data.personalInfo.github)}
                             </a>
                         </>
                     )}
@@ -536,6 +574,9 @@ These settings will give you the best results for your resume PDF.`);
                                         }}
                                     >
                                         {exp.position}
+                                        {exp.roleType &&
+                                            exp.roleType !== "None" &&
+                                            ` – ${exp.roleType}`}
                                     </div>
                                 </div>
 
@@ -758,6 +799,27 @@ These settings will give you the best results for your resume PDF.`);
                                         }}
                                     >
                                         <strong>{project.position}</strong>
+                                        {project.roleType &&
+                                            project.roleType !== "None" &&
+                                            ` – ${project.roleType}`}
+                                        {project.linkName &&
+                                            project.linkUrl && (
+                                                <>
+                                                    {" — "}
+                                                    <a
+                                                        href={project.linkUrl}
+                                                        style={{
+                                                            color: "blue",
+                                                            textDecoration:
+                                                                "none",
+                                                        }}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                    >
+                                                        {project.linkName}
+                                                    </a>
+                                                </>
+                                            )}
                                     </div>
                                 </div>
 
@@ -1181,6 +1243,7 @@ These settings will give you the best results for your resume PDF.`);
                                                 ).toString(),
                                             }}
                                         >
+                                            {edu.duration}
                                         </div>
                                     </div>
                                 </div>
