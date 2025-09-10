@@ -15,56 +15,249 @@ import { RotateCcw, Save, Check } from 'lucide-react';
 function App() {
   const initialData = {
     personalInfo: {
-      name: '',
-      title: '',
-      phone: '',
-      email: '',
-      location: '',
-      linkedin: '',
-      portfolio: ''
+      name: 'KANCHAN YADAV',
+      title: 'Biostatistician | Epidemiologist | Health Data Scientist',
+      phone: '+1-781-456-0523',
+      email: 'kanchanyad90@gmail.com',
+      location: 'Cambridge, MA, USA',
+      linkedin: 'LinkedIn',
+      portfolio: '',
+      github: ''
     },
-    summary: '',
-    workExperience: [{
-      id: '1',
-      position: '',
-      company: '',
-      location: '',
-      duration: '',
-      responsibilities: ['']
-    }],
-    projects: [{
-      id: '1',
-      position: '',
-      company: '',
-      location: '',
-      duration: '',
-      responsibilities: ['']
-    }],
-    leadership: [{
-      id: '1',
-      title: '',
-      organization: ''
-    }],
-    skills: [{
-      id: '1',
-      category: '',
-      skills: ''
-    }],
-    education: [{
-      id: '1',
-      institution: '',
-      location: '',
-      degree: '',
-      field: '',
-      additionalInfo: ''
-    }],
-    publications: []
+    summary: 'MPH in Population Sciences and PhD in Physical Chemistry with 7+ years of biostatistics, epidemiology, and public health research. Expertise spans statistical programming (R, STATA, SAS, SPSS), data visualization (Tableau, Power BI, Excel), survival analysis, causal inference, and Bayesian modeling. Led 20+ studies impacting 1M+ participants and produced 50+ reports/dashboards that guided policy and program evaluation.',
+    workExperience: [
+      {
+        id: '1',
+        position: 'Research Assistant – Occupational Safety & Health',
+        company: 'Harvard University, School of Public Health',
+        location: 'Boston, MA',
+        duration: 'Nov 2024 – May 2025',
+        roleType: 'Full-time',
+        responsibilities: [
+          'Applied psychometric modeling techniques (Item Response Theory, bifactor analysis, graded response models) to validate the Thriving from Work Questionnaire, achieving >0.85 reliability for the general factor and identifying structural inconsistencies in subdomains.',
+          'Designed and managed a Qualtrics survey with 500+ participants via Prolific; executed end-to-end data workflows including cleaning, transformation, and 5% missing data imputation, ensuring high-quality datasets across age cohorts (20–49 vs. 50+).',
+          'Engineered advanced statistical analyses (logistic regression, t-tests, Pearson & polychoric correlations) in R, building 15+ reproducible data models that revealed strong score correlations (r > 0.80) and predictive links to workplace well-being outcomes.',
+          'Built automated R pipelines to generate validated psychometric outputs, demonstrating positive correlations with job satisfaction (+0.65), flourishing (+0.70), well-being (+0.72) and strong negative correlations with burnout (–0.55) and turnover intention (–0.50).'
+        ]
+      },
+      {
+        id: '2',
+        position: 'Research Intern – Environmental Health & Public Technology',
+        company: 'MIT (PathCheck Foundation) & Harvard Bloomberg Center for Cities',
+        location: 'Cambridge, MA',
+        duration: 'Jun 2024 – Aug 2024',
+        roleType: 'Full-time',
+        responsibilities: [
+          'Performed time-series modeling and variance estimation on 1M+ air quality datapoints, quantifying pollutant concentration trends and population-level exposures with high statistical confidence.',
+          'Built and validated multivariate regression models in R to benchmark low-cost air quality sensors, demonstrating >85% correlation with gold-standard health outcome datasets.',
+          'Developed interactive Tableau dashboards visualizing exposure-risk relationships and quantified uncertainty margins (±10–15%), enhancing transparency in public health decision-making.',
+          'Delivered statistical evidence supporting the scalability of low-cost sensors in environmental health surveillance, providing data-driven insights that influenced adoption in urban public health monitoring systems.'
+        ]
+      },
+      {
+        id: '3',
+        position: 'Research Assistant – Viral Diagnostic Validation',
+        company: 'Harvard University, School of Public Health',
+        location: 'Boston, MA',
+        duration: 'Mar 2024 – Jun 2024',
+        roleType: 'Full-time',
+        responsibilities: [
+          'Implemented biostatistical reliability testing by computing Intraclass Correlation Coefficients (ICC) across 62 viral markers and two assay timepoints in R, ensuring reproducibility of high-dimensional serological datasets and confirming consistency of diagnostic outputs for downstream analysis.',
+          'Executed comparative diagnostic performance assessments through correlation modeling and variance estimation, generating statistically robust evidence that strengthened the association between viral exposure history and maternal health outcomes in diverse population cohorts.',
+          'Executed end-to-end data validation workflows, including cleaning, reproducibility checks, and sensitivity analysis, to enhance statistical accuracy, minimize assay bias, and increase confidence in the use of large-scale serological datasets for epidemiological research.',
+          'Produced evidence-based recommendations validating the VirScan framework as a reliable diagnostic tool, enabling its application in maternal and child health studies and providing actionable insights for advancing precision medicine and public health interventions.'
+        ]
+      },
+      {
+        id: '4',
+        position: 'Program Coordinator – Mental Health (Mindrise)',
+        company: 'Progressive Foundation / PIIndia.org',
+        location: 'India',
+        duration: 'Aug 2021 – Dec 2022',
+        roleType: 'Full-time',
+        responsibilities: [
+          'Designed and automated an Excel-based logging and analysis system that consolidated data from 8,200+ counseling calls and 4,000+ child beneficiaries, improving reporting efficiency, reducing manual errors, and enabling large-scale monitoring of mental health outreach programs.',
+          'Engineered descriptive and inferential statistical methods (t-tests, stratification by age/gender, and urban–rural comparisons) to evaluate session effectiveness and access disparities, generating actionable evidence that informed targeted program improvements and stakeholder decision-making.',
+          'Conducted qualitative coding of counselor notes into structured categories such as grief, withdrawal, dropout risk, and depression, and combined findings with k-means clustering to identify high-risk profiles, allowing interventions to be tailored for children showing early warning symptoms.',
+          'Produced evidence-driven insights showing that 23% of children—primarily aged 11–14—required more than three sessions, and demonstrated that regional language compatibility increased session engagement and follow-up compliance by 40%, guiding recruitment and training of culturally aligned counselors.'
+        ]
+      },
+      {
+        id: '5',
+        position: 'Program Manager – Cervical Cancer Screening & HPV Vaccination',
+        company: 'Progressive Foundation / CSR',
+        location: 'India',
+        duration: 'Apr 2019 – Dec 2022',
+        roleType: 'Full-time',
+        responsibilities: [
+          'Directed a large-scale cervical cancer prevention program across 200 villages, delivering awareness sessions to 10,000+ women, screening 1,000, and vaccinating 500 girls and women (ages 9–25), significantly expanding preventive health access in low-resource settings.',
+          'Conducted statistical analysis of Health and Wellness Centre (HWC) datasets using R, SPSS, and Tableau, applying descriptive statistics, sensitivity/specificity testing, and regression-based inference to identify a 3.5x higher likelihood of cervical symptoms among women aged 40–55 with ≥3 childbirths.',
+          'Established Tableau dashboards and monitoring frameworks to track screening coverage, vaccination uptake, and referral patterns at the village level, equipping stakeholders with real-time visibility into diagnostic gaps and resource allocation needs.',
+          'Produced evidence-based recommendations for targeted community mobilization campaigns, strengthening early detection pathways and improving compliance rates for screening and vaccination programs in rural populations.'
+        ]
+      },
+      {
+        id: '6',
+        position: 'Program Manager – Arogya Parivar Digital Health Program',
+        company: 'Progressive Foundation & Novartis (with Tech Mahindra)',
+        location: 'India',
+        duration: 'Jan 2019 – Oct 2019',
+        roleType: 'Full-time',
+        responsibilities: [
+          'Designed and implemented a mixed-method evaluation framework to assess digital consultation platforms, measuring patient throughput, diagnostic accuracy, consultation-to-referral efficiency, and overall program scalability in rural healthcare settings.',
+          'Performed descriptive and inferential statistical analyses (age/gender stratification, disease-type segmentation, pre–post intervention comparisons) on 10,000+ patient records, identifying key usage patterns and gaps in digital healthcare adoption.',
+          'Delivered impact assessments showing a 35–40% increase in early medical consultations and significant reductions in unnecessary referrals, providing evidence for scaling digital health models in underserved communities.'
+        ]
+      },
+      {
+        id: '7',
+        position: 'Project Assistant – Cancer Prioritization in India',
+        company: 'Progressive Foundation & Roche',
+        location: 'India',
+        duration: 'Sep 2018 – Oct 2020',
+        roleType: 'Full-time',
+        responsibilities: [
+          'Conducted multi-source data analysis by integrating NFHS, NCRP, hospital records, and insurance claim datasets to evaluate cancer incidence, diagnostic delays, treatment discontinuation, and financial burden across diverse regions.',
+          'Generated evidence-driven insights through descriptive statistics, cross-tabulations, and geospatial visualizations (heat maps, survival trend charts), enabling policymakers to identify high-burden states and bottlenecks in patient treatment pathways.'
+        ]
+      },
+      {
+        id: '8',
+        position: 'Project Research Director – Tuberculosis Drug Adherence',
+        company: 'Progressive Foundation / State Govt.',
+        location: 'India',
+        duration: 'Sep 2016 – Aug 2018',
+        roleType: 'Full-time',
+        responsibilities: [
+          'Applied statistical modeling techniques including logistic regression, chi-square testing, and time-series analysis to evaluate adherence patterns, quantify intervention effects, and assess outcome disparities between control and intervention groups.',
+          'Implemented patient-level cohort tracking models using unique IDs to measure drop-out and cure rates, and delivered interactive adherence dashboards that informed decision-making at district and state health administration levels.'
+        ]
+      },
+      {
+        id: '9',
+        position: 'Project Analyst – JE/AES Control & Management',
+        company: 'Progressive Foundation & PATH',
+        location: 'India',
+        duration: 'Sep 2015 – Aug 2016',
+        roleType: 'Full-time',
+        responsibilities: [
+          'Consolidated and analyzed multi-year case data from PHCs, CHCs, and regional hospitals to identify outbreak clusters, measure age-specific and district-level burden, and track seasonal epidemic spikes using descriptive epidemiological methods.',
+          'Produced geospatial heat maps and trend visualizations of case fatality rates, providing data-driven justification for the establishment of 108 decentralized treatment centers in high-prevalence districts, which improved early access to care and reduced mortality rates.'
+        ]
+      },
+      {
+        id: '10',
+        position: 'Researcher – Molecular Interaction & Physicochemical Profiling Lab',
+        company: 'Deen Dayal Upadhyaya Gorakhpur University (State University)',
+        location: 'India',
+        duration: 'Oct 2012 – Oct 2019',
+        roleType: 'Full-time',
+        responsibilities: [
+          'Investigated molecular interaction mechanisms in binary liquid mixtures by applying statistical and physicochemical analysis (regression modeling, multivariate techniques, t-tests), generating insights relevant to drug–receptor binding behavior.',
+          'Authored and co-authored peer-reviewed publications in international journals on thermodynamics, viscosities, and liquid mixture profiling, contributing to advancements in physical chemistry and molecular modeling research.'
+        ]
+      }
+    ],
+    projects: [],
+    leadership: [],
+    skills: [
+      {
+        id: '1',
+        category: 'Statistical & Analytical Methods',
+        skills: 'Hypothesis testing, regression modeling (linear, logistic, Cox), survival analysis, mixed-effects models, generalized estimating equations (GEE), causal inference (PSM, DID, IV), Bayesian modeling, MCMC simulations.'
+      },
+      {
+        id: '2',
+        category: 'Study Design & Epidemiology',
+        skills: 'Clinical trials, cohort, case-control, cross-sectional, longitudinal studies, survey design, incidence/prevalence estimation, treatment adherence, sensitivity/specificity, ROC curves, cost-effectiveness analysis.'
+      },
+      {
+        id: '3',
+        category: 'Data Management & Visualization',
+        skills: 'Large dataset cleaning & transformation, missing data imputation, R, STATA, SAS, SPSS, Excel (advanced), Tableau, Power BI, ggplot2.'
+      },
+      {
+        id: '4',
+        category: 'Qualitative & Program Evaluation',
+        skills: 'Thematic coding (NVivo), clustering, intervention evaluation, program monitoring, policy impact assessment.'
+      },
+      {
+        id: '5',
+        category: 'Tools & Technical',
+        skills: 'Git/GitHub, LaTeX, workflow automation.'
+      },
+      {
+        id: '6',
+        category: 'Domain Expertise',
+        skills: 'Occupational health, infectious diseases (TB, JE/AES, viral diagnostics), cancer screening & HPV vaccination, environmental health, mental health interventions.'
+      }
+    ],
+    education: [
+      {
+        id: '1',
+        institution: 'Harvard University, School of Public Health, Boston, MA, USA.',
+        location: 'Boston, MA',
+        degree: 'Master of Public Health (MPH), Population Sciences',
+        field: 'Population Sciences',
+        duration: 'Aug 2023 – Mar 2025',
+        additionalInfo: 'Aug 2023 – Mar 2025'
+      },
+      {
+        id: '2',
+        institution: 'Deen Dayal Upadhyaya Gorakhpur University, UP, India',
+        location: 'UP, India',
+        degree: 'Doctor of Philosophy (PhD), Physical Chemistry',
+        field: 'Physical Chemistry',
+        duration: 'Dec 2014 – Oct 2019',
+        additionalInfo: 'Dec 2014 – Oct 2019'
+      },
+      {
+        id: '3',
+        institution: 'Deen Dayal Upadhyaya Gorakhpur University, UP, India',
+        location: 'UP, India',
+        degree: 'Master of Science (MS), Organic Chemistry',
+        field: 'Organic Chemistry',
+        duration: 'Jul 2009 – Jun 2011',
+        additionalInfo: 'Jul 2009 – Jun 2011'
+      },
+      {
+        id: '4',
+        institution: 'Deen Dayal Upadhyaya Gorakhpur University, UP, India',
+        location: 'UP, India',
+        degree: 'Bachelor of Science (BS), Biology & Chemistry',
+        field: 'Biology & Chemistry',
+        duration: 'Jul 2006 – Jun 2009',
+        additionalInfo: 'Jul 2006 – Jun 2009'
+      }
+    ],
+    publications: [
+      {
+        id: '1',
+        details: 'Thriving from Work Questionnaire: Validation of a measure of worker wellbeing among older U.S. workers. Co-Author (Under peer review, Manuscript ID: ijerph-3753172).'
+      },
+      {
+        id: '2',
+        details: 'Strategies for Enhancing Air Quality and Public Health through Low-Cost Sensors. Data-smart city solutions, Bloomberg Center for cities, Harvard University. Author: Kanchan Yadav.'
+      },
+      {
+        id: '3',
+        details: 'Co-editor, Integrated Management of Water Resources in India: A Computational Approach. Springer Nature, 2024.'
+      },
+      {
+        id: '4',
+        details: 'Viscosities and excess molar volumes of binary liquid mixtures of 1,4-dichlorobutane and some hydrocarbon solvents at 308.15K, 313.15K, 318.15K. Author: Kanchan Yadav and S.S. Yadava, Physics and Chemistry of Liquids, 2018, 57(3), 325-337.'
+      },
+      {
+        id: '5',
+        details: 'Densities and Viscosities of binary liquid mixtures of 1,6-dichlorohexane with different hydrocarbons at several temperature 308.15K, 313.15K, and 318.15K. Author: Kanchan Yadav and S.S. Yadava, J. sol. Chem., 2018, 47, 1172-1191. (+ 2more)'
+      }
+    ]
   };
 
   const [resumeData, setResumeData] = useState(initialData);
   const [showLeadership, setShowLeadership] = useState(true);
   const [showProjects, setShowProjects] = useState(false);
-  const [showPublications, setShowPublications] = useState(false);
+  const [showPublications, setShowPublications] = useState(true);
   const [isSaved, setIsSaved] = useState(false);
   const [jobDescription, setJobDescription] = useState('');
   const [optimizedResumeData, setOptimizedResumeData] = useState(null);
